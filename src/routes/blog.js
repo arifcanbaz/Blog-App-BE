@@ -16,4 +16,7 @@ router.route('/:id')
     .patch(isLogin,blog.update)
     .delete(isLogin,blog.delete)
 
+router.get("/:id/getLike", isLogin, blog.getLike)
+router.post("/:id/postLike", isLogin, blog.postLike)
+
 module.exports = router
