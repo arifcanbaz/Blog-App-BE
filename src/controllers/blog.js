@@ -3,6 +3,19 @@
 const Blog = require ('../models/blog')
 
 module.exports = {
+    /*
+            #swagger.tags = ["Blogs"]
+            #swagger.summary = "List Blogs"
+            #swagger.description = `
+                You can use <u>filter[] & search[] & sort[] & page & limit</u> queries with endpoint.
+                <ul> Examples:
+                    <li>URL/?<b>filter[field1]=value1&filter[field2]=value2</b></li>
+                    <li>URL/?<b>search[field1]=value1&search[field2]=value2</b></li>
+                    <li>URL/?<b>sort[field1]=asc&sort[field2]=desc</b></li>
+                    <li>URL/?<b>limit=10&page=1</b></li>
+                </ul>
+            `
+        */
     list: async (req, res) => {
 
         const data = await res.getModelList(Blog)
@@ -15,6 +28,21 @@ module.exports = {
     },
 
     create: async (req, res) => {
+        /*
+            #swagger.tags = ["Blogs"]
+            #swagger.summary = "Create Blog"
+            #swagger.parameters['body'] = {
+                in: 'body',
+                required: true,
+                schema: {
+                    "categoryId": "65343222b67e9681f937f101",
+                    "title": "Blog Title 1",
+                    "content": "Blog Content 1",
+                    "image": "http://imageURL",
+                    "isPublish": true
+                }
+            }
+        */
         const data = await Blog.create(req.body)
 
         res.status(201).send({
@@ -24,6 +52,10 @@ module.exports = {
     },
 
     read: async (req,res) => {
+        /*
+            #swagger.tags = ["Blogs"]
+            #swagger.summary = "Get Single Blog"
+        */
         const data = await Blog.findOne({ _id: req.params.id})
 
         res.status(201).send({
@@ -33,6 +65,21 @@ module.exports = {
     },
 
     update: async (req, res) => {
+        /*
+            #swagger.tags = ["Blogs"]
+            #swagger.summary = "Update Blog"
+            #swagger.parameters['body'] = {
+                in: 'body',
+                required: true,
+                schema: {
+                    "categoryId": "65343222b67e9681f937f101",
+                    "title": "Blog Title 1",
+                    "content": "Blog Content 1",
+                    "image": "http://imageURL",
+                    "isPublish": true
+                }
+            }
+        */
         const data = await Blog.updateOne( {_id: req.params.id}, req.body, {runValidators:true})
 
         res.status(202).send({
@@ -43,6 +90,10 @@ module.exports = {
     },
 
     delete: async (req, res) => {
+        /*
+            #swagger.tags = ["Blogs"]
+            #swagger.summary = "Delete"
+        */
         const data = await Blog.deleteOne({_id: req.params.id})
 
         res.status(data.deletedCount ? 204 : 404).send({
