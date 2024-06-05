@@ -3,7 +3,9 @@
 const Blog = require ('../models/blog')
 
 module.exports = {
-    /*
+    
+    list: async (req, res) => {
+        /*
             #swagger.tags = ["Blogs"]
             #swagger.summary = "List Blogs"
             #swagger.description = `
@@ -16,7 +18,6 @@ module.exports = {
                 </ul>
             `
         */
-    list: async (req, res) => {
 
         const data = await res.getModelList(Blog)
 
