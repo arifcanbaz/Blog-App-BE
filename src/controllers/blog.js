@@ -37,6 +37,7 @@ module.exports = {
                 required: true,
                 schema: {
                     "categoryId": "65343222b67e9681f937f101",
+                    "userId": "65343222b67e9681f937f101",
                     "title": "Blog Title 1",
                     "content": "Blog Content 1",
                     "image": "http://imageURL",
@@ -58,6 +59,8 @@ module.exports = {
             #swagger.summary = "Get Single Blog"
         */
         const data = await Blog.findOne({ _id: req.params.id})
+        data.countOfVisitors+=1
+        await data.save()
 
         res.status(201).send({
             error:false,
@@ -74,6 +77,7 @@ module.exports = {
                 required: true,
                 schema: {
                     "categoryId": "65343222b67e9681f937f101",
+                    "userId": "65343222b67e9681f937f101",
                     "title": "Blog Title 1",
                     "content": "Blog Content 1",
                     "image": "http://imageURL",
