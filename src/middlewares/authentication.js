@@ -1,8 +1,5 @@
 "use strict"
-/* -------------------------------------------------------
-    NODEJS EXPRESS 
-------------------------------------------------------- */
-// app.use(authentication):
+
 
 
 const Token = require('../models/token')
