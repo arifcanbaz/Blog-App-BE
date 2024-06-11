@@ -495,6 +495,10 @@
                   "type": "string",
                   "example": "65343222b67e9681f937f101"
                 },
+                "userId": {
+                  "type": "string",
+                  "example": "65343222b67e9681f937f101"
+                },
                 "title": {
                   "type": "string",
                   "example": "Blog Title 1"
@@ -564,6 +568,10 @@
               "type": "object",
               "properties": {
                 "categoryId": {
+                  "type": "string",
+                  "example": "65343222b67e9681f937f101"
+                },
+                "userId": {
                   "type": "string",
                   "example": "65343222b67e9681f937f101"
                 },
@@ -637,6 +645,10 @@
               "type": "object",
               "properties": {
                 "categoryId": {
+                  "type": "string",
+                  "example": "65343222b67e9681f937f101"
+                },
+                "userId": {
                   "type": "string",
                   "example": "65343222b67e9681f937f101"
                 },
